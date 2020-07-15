@@ -1,0 +1,103 @@
+<HTML>
+<HEAD>
+<TITLE>Print a div</TITLE>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style type="text/css">
+  	 @media print
+    {
+       
+        .for-screen {
+            display:none;
+
+        }
+        .for-print {
+            display:normal;
+            margin-top:20em;
+            
+            
+        }
+       
+        
+        
+    }
+  </style>
+
+</HEAD>
+<BODY>
+
+	<div class="for-screen d-flex justify-content-center">
+		<h2 class="text-justify font-weight-bold" style="text-align: center;">  This Button only Print Only Below table <br><br>
+			<button type="button" class="btn btn-success" id="print">Print</button></h2>
+		<br><br>
+	</div>
+	<div class="for-print col-md-10 col-md-offset-1" id="printtable">
+		<div class="text-center">
+  			<h2>Train schedule</h2>
+  			<br><br>
+			<img src="train.jpg" class="rounded mx-auto d-block" alt="train" style="width:70%;height: 50%;text-align: center">
+			<br><br>
+		</div>
+		
+
+		
+		<TABLE class="table table-hover table-bordered" >
+			<TR class="bg-success">
+			<TD WIDTH="5%" ROWSPAN="2"><B>TrainNo.</B></TD>
+			<TD WIDTH="15%" ROWSPAN="2"><B>Name of Train</B></TD>
+			<TD WIDTH="15%" ROWSPAN="2"><B>Place</B></TD>
+			<TD WIDTH="15%" ROWSPAN="2"><B>Destination</B></TD>
+			<TD WIDTH="30%" ALIGN="center" COLSPAN="2"><B>Time</B></TD>
+			<TD WIDTH="15%" ROWSPAN="2"><B>Fare</B></TD>
+			</TR>
+			<TR class="bg-success">
+			<TD WIDTH="15%"><B>Arrival</B></TD>
+			<TD WIDTH="15%"><B>Departure</B></TD>
+			</TR>
+			<TR>
+			<TD WIDTH="5%">1029</TD>
+			<TD WIDTH="15%">Intercity</TD>
+			<TD WIDTH="15%">Karachi</TD>
+			<TD WIDTH="15%">korangi</TD>
+			<TD WIDTH="15%">6.45</TD>
+			<TD WIDTH="15%">11.50</TD>
+			<TD WIDTH="15%">250</TD>
+			</TR>
+			<TR>
+			<TD WIDTH="5%">1312</TD>
+			<TD WIDTH="15%">Greenline</TD>
+			<TD WIDTH="15%">Islamabad</TD>
+			<TD WIDTH="15%">Karachi</TD>
+			<TD WIDTH="15%">10.15</TD>
+			<TD WIDTH="15%">19.00</TD>
+			<TD WIDTH="15%">1600</TD>
+			</TR>
+		</TABLE>
+
+	</div>
+
+</BODY>
+
+  <script type="text/javascript">
+  	function printData(e) {
+    debugger;
+    console.log("pritning");
+
+    var divToPrint = document.getElementById(e);
+
+    console.log(divToPrint.outerHTML);
+
+    window.print(divToPrint.outerHTML);
+
+    
+    return false;
+}
+
+$('#print').on('click', function () {
+    printData('printtable');
+});
+
+  </script>
+</HTML>
